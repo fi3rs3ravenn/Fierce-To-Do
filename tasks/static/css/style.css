@@ -1,0 +1,66 @@
+body {
+    background-color: #121212 !important;
+    color: #f8f9fa !important;
+}
+
+.navbar {
+    background-color: #1f1f1f !important;
+}
+
+.card {
+    background-color: #1f1f1f !important;
+    color: #f8f9fa !important;
+}
+
+.table {
+    background-color: #1f1f1f !important;
+    color: #f8f9fa !important;
+}
+
+.table th, .table td {
+    color: #f8f9fa !important;
+}
+
+.form-control, .btn, .form-select {
+    background-color: #1f1f1f !important;
+    color: #f8f9fa !important;
+}
+
+.form-control:focus, .form-select:focus {
+    background-color: #1f1f1f !important;
+    border-color: #00d1b2 !important;
+}
+
+.btn-primary {
+    background-color: #00d1b2 !important;
+    border-color: #00d1b2 !important;
+}
+
+.btn-primary:hover {
+    background-color: #00b89f !important;
+}
+
+.btn-danger {
+    background-color: #e63946 !important;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.avatar3 {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+}   
+
+.avatar2 {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}   

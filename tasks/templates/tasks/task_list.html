@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}My Tasks{% endblock %}
+
+{% block content %}
+<h1>My Tasks</h1>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Status</th>
+            <th>Deadline</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for task in tasks %}
+        <tr>
+            <td>{{ task.title }}</td>
+            <td>{{ task.get_status_display }}</td>
+            <td>{{ task.deadline }}</td>
+            <td>
+                <a href="{% url 'task_detail' task.id %}" class="btn btn-info btn-sm">View</a>
+                <a href="{% url 'task_update' task.id %}" class="btn btn-warning btn-sm">Edit</a>
+                <a href="{% url 'task_confirm_delete' task.id %}" class="btn btn-danger btn-sm">Delete</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4" class="text-center">No tasks found.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

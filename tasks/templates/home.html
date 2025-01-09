@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Welcome to To-Do App{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% if user.is_authenticated %}
+        <div class="text-center my-5">
+            <h1 class="display-4">Welcome back, {{ user.nickname|default:user.username }}!</h1>
+            <p class="lead">Glad to see you again! Stay on track with your daily tasks and keep up your productivity.</p>
+            <img src="{% if user.avatar %}{{ user.avatar.url }}{% else %}https://source.unsplash.com/150x150/?avatar{% endif %}" class="avatar2">
+            <style>
+            .avatar2 {
+                width: 300px;
+                height: 300px;
+                border-radius: 50%;
+                object-fit: cover;
+            }     
+            </style>
+            <p class="mt-4">Navigate through your tasks using the menu at the top of the page.</p>
+            <p>Don't forget to check your profile to keep your details up to date!</p>
+        </div>
+    {% else %}
+        <div class="text-center my-5">
+            <h1 class="display-4">Welcome to <span class="text-success">To-Do App</span>!</h1>
+            <p class="lead">Take control of your life with our simple, easy-to-use task management system.</p>
+        </div>
+
+        <div class="row my-5">
+            <div class="col-md-4">
+                <h3 class="text-primary">📋 Create Tasks</h3>
+                <p>Break down your goals into manageable tasks and track your daily activities effortlessly.</p>
+            </div>
+            <div class="col-md-4">
+                <h3 class="text-success">⏳ Set Deadlines</h3>
+                <p>Set deadlines and get reminders when a task is about to expire, ensuring you never miss important deadlines.</p>
+            </div>
+            <div class="col-md-4">
+                <h3 class="text-danger">✔️ Track Progress</h3>
+                <p>Mark your tasks as complete and track your streak of successful days. Challenge yourself to be more productive every day!</p>
+            </div>
+        </div>
+
+        <div class="text-center mt-5">
+            <h2>Ready to take control?</h2>
+            <p>Join thousands of users who already manage their daily routines with our To-Do App.</p>
+            <a href="{% url 'login' %}" class="btn btn-primary btn-lg me-2">Login</a>
+            <a href="{% url 'register' %}" class="btn btn-success btn-lg">Get Started</a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

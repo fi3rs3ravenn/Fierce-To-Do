@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>Profile</h1>
+    <div class="card">
+        <div class="card-body text-center">
+            {% if user.avatar %}
+            <img src="{{ user.avatar.url }}" alt="Avatar" class="avatar3">
+            {% else %}
+            <i class="bi bi-person-circle" style="font-size: 150px;"></i>
+            {% endif %}
+            <h3>{{ user.nickname }}</h3>
+            <p><strong>Full Name:</strong> {{ user.full_name }}</p>
+            <p><strong>Bio:</strong> {{ user.bio }}</p>
+            <p><strong>Completed Tasks Streak:</strong> {{ user.streak }}</p>
+            <a href="{% url 'profile' %}" class="btn btn-primary">Edit Profile</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

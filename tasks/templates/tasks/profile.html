@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}User profile{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>User Profile</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+                <label for="avatar" class="form-label">Avatar</label>
+                {% if user.avatar %}
+                    <img src="{{ user.avatar.url }}" alt="Avatar" class="avatar2">
+                {% endif %}
+                <input type="file" class="form-control" id="avatar" name="avatar">
+            </div>
+            <div class="mb-3">
+                <label for="nickname" class="form-label">Nickname</label>
+                <input type="text" class="form-control" id="nickname" name="nickname" value="{{ user.nickname }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="full_name" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="full_name" name="full_name" value="{{ user.full_name }}">
+            </div>
+            <div class="mb-3">
+                <label for="bio" class="form-label">Bio</label>
+                <textarea class="form-control" id="bio" name="bio">{{ user.bio }}</textarea>
+            </div>
+            <div class="mb-3">
+                <label for="streak" class="form-label">Streak (Completed Tasks)</label>
+                <input type="number" class="form-control" id="streak" name="streak" value="{{ user.streak }}" readonly>
+            </div>
+            <button type="submit" class="btn btn-primary">Update Profile</button>
+        </form>
+    </div>
+{% endblock %}
